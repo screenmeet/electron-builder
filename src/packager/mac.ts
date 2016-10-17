@@ -54,6 +54,9 @@ export async function createApp(packager: PlatformPackager<any>, appOutDir: stri
   // If an extend-info file was supplied, copy its contents in first
   if (fileContents[4] != null) {
     Object.assign(appPlist, parsePlist(fileContents[4]))
+    Object.assign(helperPlist, parsePlist(fileContents[4]))
+    Object.assign(helperEHPlist, parsePlist(fileContents[4]))
+    Object.assign(helperNPPlist, parsePlist(fileContents[4]))
   }
 
   const appBundleIdentifier = filterCFBundleIdentifier(appInfo.id)
